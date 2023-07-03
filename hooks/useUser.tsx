@@ -6,7 +6,6 @@ import {
 } from "@supabase/auth-helpers-react";
 
 import { Subscription, UserDetails } from "@/types";
-import { error } from "console";
 
 
 type UserContextType = {
@@ -93,4 +92,5 @@ export const useUser = () => {
   if (context === undefined) {
     throw new Error("MyUserContextProvider なしで useUser を使うことはできません。(サブスク登録しろよってやつ)")
   }
+  return context
 }
