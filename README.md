@@ -39,4 +39,8 @@ supabase
  table:name songs -> contents
 
 contentsのbucket
- ->video/mp4
+ ->video/mp3
+
+Supabase types,sql commands(https://supabase.com/docs/guides/api/rest/generating-types)
+ これ:
+ npx supabase gen types typescript --project-id "$PROJECT_REF" --schema public > types/supabase.ts

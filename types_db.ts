@@ -3,7 +3,7 @@ export type Json =
   | number
   | boolean
   | null
-  | { [key: string]: Json }
+  | { [key: string]: Json | undefined }
   | Json[]
 
 export interface Database {
@@ -11,20 +11,29 @@ export interface Database {
     Tables: {
       contents: {
         Row: {
+          author: string | null
+          content_path: string | null
           created_at: string | null
           id: number
+          image_path: string | null
           title: string | null
           user_id: string | null
         }
         Insert: {
+          author?: string | null
+          content_path?: string | null
           created_at?: string | null
           id?: number
+          image_path?: string | null
           title?: string | null
           user_id?: string | null
         }
         Update: {
+          author?: string | null
+          content_path?: string | null
           created_at?: string | null
           id?: number
+          image_path?: string | null
           title?: string | null
           user_id?: string | null
         }
