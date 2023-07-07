@@ -1,15 +1,21 @@
 "use client"
 
+import { FC } from "react"
 import { TbPlaylist } from "react-icons/tb"
 import { AiOutlinePlus } from "react-icons/ai"
 
 import useAuthModal from "@/hooks/useAuthModal"
 import useUploadModal from "@/hooks/useUploadModal"
 import { useUser } from "@/hooks/useUser"
+import { Content } from "@/types"
+import MediaItem from "./MediaItem"
 
 
+interface LibraryProps {
+  contents: Content[],
+}
 
-const Library = () => {
+const Library: FC<LibraryProps> = ({ contents }) => {
   const authModal = useAuthModal()
   const uploadModal = useUploadModal()
   const { user } = useUser()
@@ -40,7 +46,13 @@ const Library = () => {
         />
       </div>
       <div className=" gap-y-2 mt-4 px-3">
-        List of content
+        {contents.map((item) => (
+          <MediaItem
+            onClick={() => { }}
+            key={item.id}
+            data={item}
+          />
+        ))}
       </div>
     </div>
   )

@@ -9,12 +9,14 @@ import { FcLike } from "react-icons/fc";
 import Box from './Box';
 import SidebarItem from './SidebarItem';
 import Library from './Library';
+import { Content } from "@/types"
 
 interface SidebarProps {
-  children: ReactNode
+  children: ReactNode,
+  contents: Content[],
 }
 
-const Sidebar: FC<SidebarProps> = ({ children }) => {
+const Sidebar: FC<SidebarProps> = ({ children, contents }) => {
   const pathname = usePathname()
   const routes = useMemo(() => [
     {
@@ -54,7 +56,7 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
           </div>
         </Box>
         <Box className="overflow-y-auto h-full">
-          <Library />
+          <Library contents={contents} />
         </Box>
       </div>
       <main className="h-full flex-1 overflow-y-auto py-2">

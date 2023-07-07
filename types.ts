@@ -1,5 +1,13 @@
 import Stripe from "stripe";
 
+export interface Content {
+  id: string;
+  user_id: string;
+  author: string;
+  title: string;
+  content_path: string;
+  image_path: string;
+}
 
 export interface Product {
   id: string;

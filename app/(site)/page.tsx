@@ -1,6 +1,12 @@
+import getContents from '@/actions/getContents';
 import Header from '../../components/Header';
+import PageContent from './components/PageContent';
 
-export default function Home() {
+export const revalidate = 0;
+
+export default async function Home() {
+  const contents = await getContents()
+
   return (
     <div className=" bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
       <Header>
@@ -21,7 +27,7 @@ export default function Home() {
             Newest Info
           </h1>
         </div>
-        List of Content
+        <PageContent contents={contents} />
       </div>
     </div>
   )
