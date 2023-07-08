@@ -2,8 +2,6 @@
 
 import ContentItem from "@/components/ContentItem";
 import { Content } from "@/types";
-// import useOnPlay from "@/hooks/useOnPlay";
-// import SongItem from "@/components/SongItem";
 
 
 interface PageContentProps {

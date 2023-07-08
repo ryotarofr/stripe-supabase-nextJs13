@@ -12,8 +12,8 @@ const getContentsByTitle = async (title: string): Promise<Content[]> => {
   });
 
   if (!title) {
-    const allSongs = await getContents();
-    return allSongs;
+    const allContents = await getContents();
+    return allContents;
   }
 
   const { data, error } = await supabase

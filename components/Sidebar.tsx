@@ -34,8 +34,8 @@ const Sidebar: FC<SidebarProps> = ({ children, contents }) => {
     {
       icon: FcLike,
       label: 'Like',
-      active: pathname === '/Like',
-      href: '/Like',
+      active: pathname === '/liked',
+      href: '/liked',
     },
   ], [pathname])
   return (
