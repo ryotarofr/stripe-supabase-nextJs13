@@ -12,7 +12,7 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 
 
 interface LikeButtonProps {
-  contentId: Content[],
+  contentId: string,
 }
 
 const LikeButton: FC<LikeButtonProps> = ({ contentId }) => {

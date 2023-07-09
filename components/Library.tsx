@@ -9,6 +9,7 @@ import useUploadModal from "@/hooks/useUploadModal"
 import { useUser } from "@/hooks/useUser"
 import { Content } from "@/types"
 import MediaItem from "./MediaItem"
+import useOnPlay from "@/hooks/useOnPlay"
 
 
 interface LibraryProps {
@@ -19,6 +20,8 @@ const Library: FC<LibraryProps> = ({ contents }) => {
   const authModal = useAuthModal()
   const uploadModal = useUploadModal()
   const { user } = useUser()
+
+  const onPlay = useOnPlay(contents)
 
   const onClick = () => {
     if (!user) {
@@ -48,7 +51,7 @@ const Library: FC<LibraryProps> = ({ contents }) => {
       <div className=" gap-y-2 mt-4 px-3">
         {contents.map((item) => (
           <MediaItem
-            onClick={() => { }}
+            onClick={(id: string) => onPlay(id)}
             key={item.id}
             data={item}
           />

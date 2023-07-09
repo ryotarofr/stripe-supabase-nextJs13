@@ -7,6 +7,7 @@ import { Content } from "@/types"
 import { useUser } from "@/hooks/useUser"
 import MediaItem from "@/components/MediaItem"
 import LikeButton from "@/components/LikeButton"
+import useOnPlay from "@/hooks/useOnPlay"
 
 interface LikedContentProps {
   contents: Content[]
@@ -15,6 +16,8 @@ interface LikedContentProps {
 const LikedContent: FC<LikedContentProps> = ({ contents }) => {
   const router = useRouter()
   const { isLoading, user } = useUser()
+
+  const onPlay = useOnPlay(contents)
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -45,7 +48,9 @@ const LikedContent: FC<LikedContentProps> = ({ contents }) => {
           className="flex items-center gap-x-4 w-full"
         >
           <div className="flex-1">
-            <MediaItem data={content} />
+            <MediaItem
+              onClick={(id: string) => onPlay(id)}
+              data={content} />
           </div>
           <LikeButton contentId={content.id} />
         </div>
