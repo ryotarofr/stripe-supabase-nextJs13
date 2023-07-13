@@ -10,6 +10,7 @@ import { useUser } from "@/hooks/useUser"
 import { Content } from "@/types"
 import MediaItem from "./MediaItem"
 import useOnPlay from "@/hooks/useOnPlay"
+import useSubscribeModal from "@/hooks/useSubscribeModal"
 
 
 interface LibraryProps {
@@ -19,13 +20,18 @@ interface LibraryProps {
 const Library: FC<LibraryProps> = ({ contents }) => {
   const authModal = useAuthModal()
   const uploadModal = useUploadModal()
-  const { user } = useUser()
+  const subscribeModal = useSubscribeModal();
+  const { user, subscription } = useUser()
 
   const onPlay = useOnPlay(contents)
 
   const onClick = () => {
     if (!user) {
       return authModal.onOpen()
+    }
+
+    if (!subscription) {
+      return subscribeModal.onOpen();
     }
 
     return uploadModal.onOpen()
